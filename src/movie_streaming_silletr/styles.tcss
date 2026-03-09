@@ -1,0 +1,32 @@
+Screen {
+    background: #0a0a0a;
+    padding: 2 4;
+}
+
+Input {
+    width: 100%;
+    margin-bottom: 1;
+    border: tall #333333;
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+Input:focus {
+    border: tall #7c3aed;
+}
+
+Button {
+    background: #7c3aed;
+    color: #ffffff;
+    width: 20;
+    margin-bottom: 1;
+}
+
+Button:hover {
+    background: #9d5aff;
+}
+
+Label {
+    color: #a0a0a0;
+    margin-top: 1;
+}
