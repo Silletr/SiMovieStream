@@ -1,11 +1,14 @@
 import requests
+import json
 import os
 from dotenv import load_dotenv
-import re
-
+from tmdbv3api import TMDb, Genre
 
 load_dotenv()
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
+
+tmdb = TMDb()
+tmdb.api_key = TMDB_API_KEY
 
 
 def normalize_title(title: str) -> str:
@@ -33,4 +36,20 @@ def search_movie_by_name(movie_name: str) -> tuple[str, str] | None:
     if not results:
         return None
     first = results[0]
-    return (str(first["id"]), first["title"])  # pyright: ignore
+    print(first)
+    return (str(first["id"]), first["title"], first["genre_ids"])
+
+
+def get_genres() -> dict:
+    if os.path.exists("genres.json"):
+        with open("genres.json", "r") as file:
+            return json.load(file)
+
+    genre = Genre()
+    genres = genre.movie_list()
+    with open(file="genres.json", mode="w") as file:
+        json.dump({"genres": [dict(g) for g in genres]}, file, indent=2)
+
+    print(genres)
+    return genres   # pyright: ignore
+    # pyright is the most bitch, that I ever saw

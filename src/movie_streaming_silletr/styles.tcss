@@ -1,6 +1,49 @@
 Screen {
-    background: #0a0a0a;
+    align: center top;
     padding: 2 4;
+}
+
+#header {
+    background: #0a0a0a;
+    border-bottom: tall #e50914;
+    height: 3;
+    padding: 0 4;
+    text-style: bold;
+}
+
+.movie-card {
+    background: #1a1a1a;
+    border: tall #2a2a2a;
+    padding: 1 2;
+    margin: 0 1;
+    width: 24;
+    height: 8;
+}
+
+.movie-card:hover {
+    border: tall #7c3aed;
+    background: #252525;
+}
+
+#results-row {
+    height: auto;
+    layout: horizontal;
+    overflow-x: auto;
+    padding: 1 0;
+}
+
+.movie-title {
+    text-style: bold;
+    color: #ffffff;
+}
+
+.movie-meta {
+    color: #7c3aed;
+    text-style: italic;
+}
+
+.movie-rating {
+    color: #ffd700;  /* gold for stars */
 }
 
 Input {
