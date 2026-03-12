@@ -41,15 +41,21 @@ def search_movie_by_name(movie_name: str) -> tuple[str, str] | None:
 
 
 def get_genres() -> dict:
-    if os.path.exists("genres.json"):
-        with open("genres.json", "r") as file:
+    file_path = os.path.join(os.path.dirname(__file__), "genres.json")
+
+    if os.path.exists(file_path):
+        with open(file_path, "r") as file:
             return json.load(file)
 
     genre = Genre()
     genres = genre.movie_list()
-    with open(file="genres.json", mode="w") as file:
+
+    if not genres:
+        print("No genres retrieved from the API.")
+        return {}
+
+    with open(file_path, "w") as file:
         json.dump({"genres": [dict(g) for g in genres]}, file, indent=2)
 
-    print(genres)
-    return genres   # pyright: ignore
-    # pyright is the most bitch, that I ever saw
+    print(f"Genres written to {file_path}")
+    return genres
