@@ -1,2 +1,5 @@
 src/movie_streaming_silletr/core/__pycache__/
 .env
+build/
+dist/
+tui.spec
