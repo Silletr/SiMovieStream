@@ -3,3 +3,10 @@ src/movie_streaming_silletr/core/__pycache__/
 build/
 dist/
 tui.spec
+src/movie_streaming_silletr/gui/__pycache__/
+src/movie_streaming_silletr/__pycache__/
+
+# Pyinstaller Dist
+src/movie_streaming_silletr/main_ui.py
+src/movie_streaming_silletr/main_ui.spec
+src/movie_streaming_silletr/SiMovieStreaming.spec
