@@ -7,11 +7,16 @@ readme = "README.md"
 
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.15"
 loguru = "^0.7.3"
 textual-dev = "^1.8.0"
 tmdbv3api = "^1.9.0"
 flet = "^0.82.2"
+python-dotenv = "^1.2.2"
+flet-desktop-light = "0.82.2"
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^6.19.0"
 
 [build-system]
 requires = ["poetry-core"]
