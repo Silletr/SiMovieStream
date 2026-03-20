@@ -5,6 +5,7 @@ dist/
 tui.spec
 src/movie_streaming_silletr/gui/__pycache__/
 src/movie_streaming_silletr/__pycache__/
+.pyre/
 
 # Pyinstaller Dist
 src/movie_streaming_silletr/main_ui.py

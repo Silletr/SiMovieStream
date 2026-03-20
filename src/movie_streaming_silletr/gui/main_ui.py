@@ -5,13 +5,7 @@ from core.tmdb_parser import search_movie_by_name as search_movie
 
 
 def resource_path(relative_path: str) -> str:
-    if hasattr(sys, '_MEIPASS'):
-        return os.path.join(sys._MEIPASS, relative_path)
-    return os.path.join(os.path.dirname(__file__), relative_path)
-
-
-def resource_path(relative_path: str) -> str:
-    if hasattr(sys, '_MEIPASS'):
+    if hasattr(sys, "_MEIPASS"):
         return os.path.join(sys._MEIPASS, relative_path)
     return os.path.join(os.path.dirname(__file__), relative_path)
 
@@ -56,11 +50,14 @@ def main(page: ft.Page):
     page.add(
         search_input,
         ft.ElevatedButton("Search", on_click=on_search),
-        ft.Row([
-            poster,  # Now defined
-            ft.Column([result_title, result_genres,
-                      result_description, result_button])
-        ])
+        ft.Row(
+            [
+                poster,  # Now defined
+                ft.Column(
+                    [result_title, result_genres, result_description, result_button]
+                ),
+            ]
+        ),
     )
 
 

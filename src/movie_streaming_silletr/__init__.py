@@ -1,7 +1,5 @@
 import sys
 import os
 
-if hasattr(sys, '_MEIPASS'):
-    sys.path.insert(0, sys._MEIPASS)
-else:
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent_dir)

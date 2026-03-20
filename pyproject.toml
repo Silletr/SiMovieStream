@@ -4,16 +4,18 @@ version = "0.1.1"
 description = "Python library with TUI & GUI for stream movie"
 authors = ["Silletr <silletr@duck.com>"]
 readme = "README.md"
-
+packages = [{include = "movie_streaming_silletr"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.15"
+flet = {extras = ["desktop"], version = "^0.82.2"}
 loguru = "^0.7.3"
 textual-dev = "^1.8.0"
 tmdbv3api = "^1.9.0"
-flet = "^0.82.2"
 python-dotenv = "^1.2.2"
-flet-desktop-light = "0.82.2"
+
+[tool.poetry.scripts]
+simoviestream = "movie_streaming_silletr.gui.main_ui:main"
 
 [tool.poetry.group.dev.dependencies]
 pyinstaller = "^6.19.0"
