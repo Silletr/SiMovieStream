@@ -18,6 +18,14 @@ flet-desktop-light = "0.82.2"
 [tool.poetry.group.dev.dependencies]
 pyinstaller = "^6.19.0"
 
+[tool.flet]
+product = "SiMovieStreaming-Windows"
+
+[tool.flet.app]
+path = "src"
+module = "movie_streaming_silletr.gui.main_ui"
+
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

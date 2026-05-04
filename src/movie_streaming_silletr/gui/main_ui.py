@@ -9,14 +9,12 @@ import webbrowser
 
 def resource_path(relative_path: str) -> str:
     if hasattr(sys, "_MEIPASS"):
-        # Fix for PyInstaller
         base_path = sys._MEIPASS
     else:
         base_path = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(base_path, "movie_streaming_silletr", relative_path)
 
 
-#  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 def make_click_handler(fid):
     def handler(e):
         webbrowser.open(f"https://vidfast.pro/movie/{fid}")
@@ -24,7 +22,6 @@ def make_click_handler(fid):
     return handler
 
 
-#  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 def main(page: ft.Page):
     page.title = "SiMovieStream"
     page.theme_mode = ft.ThemeMode.DARK
@@ -46,21 +43,22 @@ def main(page: ft.Page):
         if not movies:
             results_list.controls.append(ft.Text("🗿 No movies found", color="#a0a0a0"))
         else:
-            for movie in movies:
-                title = movie.get("title", "N/A")
-                year = movie.get("year", "N/A")
-                poster_url = movie.get("poster", "")
-                genres = movie.get("genres", [])
-                tmdb_rating = movie.get("rating", 0)
-                film_id = movie.get("id", "")
-
+            for (
+                film_id,
+                title,
+                genres,
+                poster_url,
+                overview,
+                year,
+                tmdb_rating,
+            ) in movies:
                 card = ft.Row(
                     [
                         ft.Image(
                             src=poster_url,
                             width=60,
                             height=90,
-                            fit=ft.ImageFit.COVER,
+                            fit=ft.BoxFit.COVER,
                             border_radius=5,
                         ),
                         ft.Column(
@@ -111,4 +109,4 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.run(main)
+    ft.app(target=main)
